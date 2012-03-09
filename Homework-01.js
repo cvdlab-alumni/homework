@@ -1,17 +1,48 @@
 function Point(x,y) {
-	this.x = x;
-	this.y = y;
+	this.x = x || 0; // per dare valori di default con costruttore senza argomenti
+	this.y = y || 0;
 }
 
 
 Point.prototype.toString = function() {
 	return "x = " + this.x + " , y = " + this.y;
-}
+};
 
 
 Point.prototype.getDistance = function(p2) {
 	return Math.sqrt(Math.pow(this.x - p2.x,2) + Math.pow(this.y - p2.y,2));
 };
+
+
+Point.prototype.translate = function(dx,dy) {
+	this.x += dx;
+	this.y += dy;
+	return this; // utile per il chaining
+};
+
+
+var randomPoint = function() {
+	var x = Math.sin(Math.random() * 90) * 100;
+	var y = Math.sin(Math.random() * 90) * 100;
+	return new Point(x,y);
+}
+
+
+var randomPointAlternative = function() {
+	var x = Math.random() * 200 - 100;
+	var y = Math.random() * 200 - 100;
+	return new Point(x,y);
+}
+
+
+var generatePoints = function(n) {
+	var n = n || 1;
+	var array = new Array(n);
+	for (var i = 0; i < n; i++) {
+		array[i] = randomPoint();
+	}
+	return array;
+}
 
 
 function Triangle(p1,p2,p3) {
@@ -25,7 +56,7 @@ Triangle.prototype.toString = function() {
 	return "A = (" + this.p1.x + " , " + this.p1.y + ") , " +
 	"B = (" + this.p2.x + " , " + this.p2.y + ") , " +
 	"C = (" + this.p3.x + " , " + this.p3.y + ")";
-}
+};
 
 
 Triangle.prototype.getPerimeter = function() {
