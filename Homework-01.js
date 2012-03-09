@@ -22,8 +22,8 @@ Point.prototype.translate = function(dx,dy) {
 
 
 var randomPoint = function() {
-	var x = Math.sin(Math.random() * 90) * 100;
-	var y = Math.sin(Math.random() * 90) * 100;
+	var x = Math.cos(Math.random() * Math.PI) * 100;
+	var y = Math.cos(Math.random() * Math.PI) * 100;
 	return new Point(x,y);
 }
 
