@@ -1,9 +1,11 @@
 function Point(x,y) {
 	this.x = x;
 	this.y = y;
-	this.toString = function() {
-		return "x = " + this.x + " , y = " + this.y;
-	}
+}
+
+
+Point.prototype.toString = function() {
+	return "x = " + this.x + " , y = " + this.y;
 }
 
 
@@ -16,11 +18,13 @@ function Triangle(p1,p2,p3) {
 	this.p1 = p1;
 	this.p2 = p2;
 	this.p3 = p3;
-	this.toString = function() {
-		return "A = (" + this.p1.x + " , " + this.p1.y + ") , " +
-		"B = (" + this.p2.x + " , " + this.p2.y + ") , " +
-		"C = (" + this.p3.x + " , " + this.p3.y + ")";
-	}
+}
+
+
+Triangle.prototype.toString = function() {
+	return "A = (" + this.p1.x + " , " + this.p1.y + ") , " +
+	"B = (" + this.p2.x + " , " + this.p2.y + ") , " +
+	"C = (" + this.p3.x + " , " + this.p3.y + ")";
 }
 
 
